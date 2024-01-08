@@ -1,0 +1,14 @@
+stages:
+  - build_and_push
+
+build:
+  stage: build_and_push
+  script:
+    - docker build -t devops-wiki:$CI_COMMIT_TAG .
+    - docker login -u $CUSTOM_REGISTRY_USER -p $CUSTOM_REGISTRY_TOKEN $CI_REGISTRY
+    - docker tag devops-wiki:$CI_COMMIT_TAG $CI_REGISTRY/docker/ci_registry/devops-wiki:$CI_COMMIT_TAG
+    - docker image push $CI_REGISTRY/docker/ci_registry/devops-wiki:$CI_COMMIT_TAG
+  only:
+    - tags
+  tags:
+    - gitlab-runner02-shell01-tag2
