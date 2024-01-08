@@ -12,7 +12,7 @@ hook = Flask(__name__)
 def trigger_script():
     """Trigger the script to pull the latest changes from MkDocs"""
     try:
-        subprocess.run(['/usr/local/bin/pull-mkdocs.sh'], check=True)
+        subprocess.run(['/usr/local/bin/pull-updates.sh'], check=True)
         return 'MkDocs updated!', 200
     except subprocess.CalledProcessError as e:
         return f'Error updating MkDocs: {e}', 500

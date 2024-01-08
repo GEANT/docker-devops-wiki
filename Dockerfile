@@ -18,6 +18,6 @@ RUN rm -rf /root/.cache/pip/* /var/lib/apt/lists/*
 COPY --chmod=644 files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY --chmod=644 files/hook.py /hook/hook.py
 COPY --chmod=755 files/5-scripts.sh /docker-entrypoint.d/5-scripts.sh
-COPY --chmod=755 files/pull-mkdocs.sh /usr/local/bin/pull-mkdocs.sh
+COPY --chmod=755 files/pull-updates.sh /usr/local/bin/pull-updates.sh
 
 EXPOSE 8000 8080
