@@ -1,8 +1,6 @@
 # DevOps Wiki
 
-Documentation as a code Wiki using MkDocs-material.
-
-This images provides 
+Documentation as a code with MkDocs-material
 
 1. [Preamble](#preamble)
 1. [Docker instructions](#docker-instructions)
