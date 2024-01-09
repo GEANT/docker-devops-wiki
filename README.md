@@ -16,6 +16,8 @@ You also need to supply a URL in `Dockerfile`/`Dockerfile-local`, for the reposi
 
 There is also a health-check URL (`/ping`) which I use from Nomad to determine the health status of the container.
 
+:warning: do not create pages in your wiki called `hook` or `ping` :sunglasses: they'll be proxied to gunicorn, and you won't see your document. I'll change it in the future, with a more unusual name. 
+
 ## Docker instructions
 
 You can build and run a local image using the script `build.sh`. You can use `--help` to explore all the options:
