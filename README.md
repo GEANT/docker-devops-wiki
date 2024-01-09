@@ -10,11 +10,11 @@ This images provides
 
 ## Preamble
 
-This container provides a hook URL (`/hook`) which trigger a pull from Git and rebuild the documentation site. You'll have to create a trigger on your CI.
+This container provides a hook URL (`/hook`) to trigger a pull from Git and rebuild the documentation site. You'll have to create a trigger on your CI.
 
-You also need to supply a URL in `Dockerfile`/`Dockerfile-local`, for the repository (publicly available on read-only) where you store your Wiki code.
+You also need to supply a URL in `Dockerfile`/`Dockerfile-local`, for the repository (publicly accessible in reading mode) where you store your Wiki code.
 
-There is also a health-check URL (`/ping`).
+There is also a health-check URL (`/ping`) which I use from Nomad to determine the health status of the container.
 
 ## Docker instructions
 
@@ -26,7 +26,7 @@ You can build and run a local image using the script `build.sh`. You can use `--
 
 ## Create a new release
 
-Bear in mind that our laptops can compile the image for a different architecture. Hence we use Gitlab CI to compile the image.
+Bearing in mind that our laptops can compile the image for a different architecture, we rely on Gitlab CI to compile the image.
 
 You can add these lines inside your `~/.gitconfig`:
 
@@ -37,12 +37,12 @@ You can add these lines inside your `~/.gitconfig`:
     pushall-tags = !git remote | xargs -L1 git push --tags
 ```
 
-In the below case you apply the changes to `master` branch and create a tag starting from master.
+In the case below you apply the changes to `main` branch and create a tag starting from main.
 
-If you want to create version 1.2.3, the commands below will trigger the CI and upload the files to Gitlab:
+If you want to create version `1.2.3`, the commands below will trigger the CI and upload the files to Gitlab:
 
 ```bash
-git checkout master  # make your changes ...
+git checkout main  # make your changes ...
 git commit "my new change"
 git push
 git tag 1.2.3
