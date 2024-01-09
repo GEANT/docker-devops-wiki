@@ -10,7 +10,9 @@ This images provides
 
 ## Preamble
 
-This container provides a hook URL (`/hook`) to trigger a pull from Git and rebuild the documentation site. You'll have to create a trigger on your CI.
+The Wiki is available at the root URL (`/`)
+
+The container provides also a hook URL (`/hook`) to trigger a pull from Git and rebuild the documentation site. You'll have to create a trigger on your CI.
 
 You also need to supply a URL in `Dockerfile`/`Dockerfile-local`, for the repository (publicly accessible in reading mode) where you store your Wiki code.
 
