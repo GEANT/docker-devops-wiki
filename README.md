@@ -16,7 +16,7 @@ Ensure to specify a publicly accessible repository URL in `Dockerfile`/`Dockerfi
 
 There is also a health-check URL (`/healthz`) which I use from Nomad to determine the health status of the container.
 
-The trailing `z` in `hookz` and `healthz` serves the purpose of choosing distinctive names, less likely to conflict with page names within the Wiki."
+The trailing `z` in `hookz` and `healthz` serves the purpose of choosing distinctive names, less likely to conflict with page names within the Wiki.
 
 ## Docker instructions
 
