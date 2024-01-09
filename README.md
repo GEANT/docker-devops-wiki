@@ -1,15 +1,20 @@
-# Terraformator
+# DevOps Wiki
 
-Terraform unchained, a django UI for Terraform, with VMware, NSX and Infoblox
+Documentation as a code Wiki using MkDocs-material.
 
+This images provides 
+
+1. [Preamble](#preamble)
 1. [Docker instructions](#docker-instructions)
 1. [Create a new release](#create-a-new-release)
 
-```bash
-cd ~terraform/terraformator
-./manage.py makemigrations
-./manage.py migrate --run-syncdb
-```
+## Preamble
+
+This container provides a hook URL (`/hook`) which trigger a pull from Git and rebuild the documentation site. You'll have to create a trigger on your CI.
+
+You also need to supply a URL in `Dockerfile`/`Dockerfile-local`, for the repository (publicly available on read-only) where you store your Wiki code.
+
+There is also a health-check URL (`/ping`).
 
 ## Docker instructions
 
