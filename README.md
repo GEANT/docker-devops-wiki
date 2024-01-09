@@ -8,15 +8,15 @@ Documentation as a code with MkDocs-material
 
 ## Preamble
 
-The Wiki is available at the root URL (`/`)
+The Wiki is accessible at the root URL (`/`)
 
-The container provides also a hook URL (`/hook`) to trigger a pull from Git and rebuild the documentation site. You'll have to create a trigger on your CI.
+Additionally, the container provides also a hook URL (`/hookz/<branch>`) to trigger a Git pull and rebuild the documentation site. This requires setting up a trigger on your CI platform.
 
-You also need to supply a URL in `Dockerfile`/`Dockerfile-local`, for the repository (publicly accessible in reading mode) where you store your Wiki code.
+Ensure to specify a publicly accessible repository URL in `Dockerfile`/`Dockerfile-local` containing your Wiki code.
 
-There is also a health-check URL (`/ping`) which I use from Nomad to determine the health status of the container.
+There is also a health-check URL (`/healthz`) which I use from Nomad to determine the health status of the container.
 
-:warning: do not create pages in your wiki called `hook` or `ping` :sunglasses: they'll be proxied to gunicorn, and you won't see your document. I'll change it in the future, with a more unusual name. 
+The trailing `z` in `hookz` and `healthz` serves the purpose of choosing distinctive names, less likely to conflict with page names within the Wiki."
 
 ## Docker instructions
 
